@@ -1,6 +1,7 @@
 import socket, os
 import sys
 
+hostName = '192.168.1.90'
 tcpPort = 13000	#port number
 imageLength = 512	#image length each time we read
 passTime = 100	#time to pass the image
@@ -12,7 +13,7 @@ if __name__ == "__main__":
 
 	#test if connection is ready
 	try:
-		clientSocket.connect(("192.168.1.90", tcpPort))
+		clientSocket.connect((hostName, tcpPort))
 		print "connect success!"
 	except socket.error, e:
 		print "connect fail..."
