@@ -18,7 +18,7 @@ if __name__ == "__main__":
 	#transfer the image and check if the name is wrong
 	imageIsCorrect = True
 	try:
-		imageName = 'ball.jpg'
+		imageName = 'lab.jpg'
 		imagePtr = open(imageName, 'r')
 		print "open the file ", imageName
 	except IOError, e:
