@@ -1,7 +1,7 @@
 import socket, os
 import sys
 
-hostName = '192.168.1.90'
+hostName = '192.168.7.2'
 tcpPort = 13000	#port number
 imageLength = 512	#image length each time we read
 passTime = 100	#time to pass the image
@@ -18,27 +18,25 @@ if __name__ == "__main__":
 	except socket.error, e:
 		print "connect fail..."
 
-	#transfer the image and check if the name is wrong
-	imageIsCorrect = True
-	try:
-		imageName = 'ball.jpg'
-		imagePtr = open(imageName, 'r')
-		print "open the file ", imageName
-	except IOError, e:
-		print "the image name wrong..."
-		imageIsCorrect = False
-
-	#transfer the file
-	#pass 10 times
+	#recv the image and store it
+	#create the image
+	imageName = 'R.jpg'
+	imagePtr = open(imageName, 'w')
+	
+	#looping recv the binary image
+	#recv 10 times
 	for i in range (1, passTime):
-		print "start to transfer..."
-		while imageIsCorrect:
-			imageReadBinary = imagePtr.read(imageLength)
-			print "read..."
-			if not imageReadBinary:
+		while True:
+			#print "recv...",
+			imageBinary = commuSocket.recv(imageLength)
+	
+			#check if reaching end
+			if not imageBinary:
 				break
-			clientSocket.send(imageReadBinary)
-		print "image send successful!"
+
+			#write the image
+			imagePtr.write(imageBinary)
+		print "done write", i
 
 	#close the Ptr
 	#imagePtr.close()
