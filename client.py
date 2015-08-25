@@ -3,8 +3,8 @@ import sys
 
 hostName = '192.168.7.2'
 tcpPort = 13000	#port number
-imageLength = 512	#image length each time we read
-passTime = 2	#time to pass the image
+imageLength = 65536	#image length each time we read
+passTime = 10	#time to pass the image
 
 if __name__ == "__main__":
 	#connection set
@@ -25,7 +25,7 @@ if __name__ == "__main__":
 	
 	#looping recv the binary image
 	#recv 10 times
-	for i in range (1, passTime):
+	for i in range (0, passTime):
 		while True:
 			#print "recv...",
 			imageBinary = clientSocket.recv(imageLength)

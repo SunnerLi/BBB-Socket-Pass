@@ -2,8 +2,8 @@ import socket, os
 import sys
 
 tcpPort = 13000	#port number
-imageLength = 512	#image length each time we read
-passTime = 2	#time to pass the image
+imageLength = 65536	#image length each time we read
+passTime = 10	#time to pass the image
 
 if __name__ == "__main__":
 	#connection set
