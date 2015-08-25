@@ -34,7 +34,7 @@ if __name__ == "__main__":
 			print "read..."
 			if not imageReadBinary:
 				break
-			clientSocket.send(imageReadBinary)
+			commuSocket.send(imageReadBinary)
 		print "image send successful!"
 
 	#close the ptr

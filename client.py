@@ -28,7 +28,7 @@ if __name__ == "__main__":
 	for i in range (1, passTime):
 		while True:
 			#print "recv...",
-			imageBinary = commuSocket.recv(imageLength)
+			imageBinary = clientSocket.recv(imageLength)
 	
 			#check if reaching end
 			if not imageBinary:
